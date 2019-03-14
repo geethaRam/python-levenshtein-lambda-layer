@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Python-Levenshtein
+Globals:
+    Function:
+        Timeout: 3
+        Runtime: python3.7
+
+Resources:
+    PythonLevenshteinLambdaLayer:
+        Type: AWS::Serverless::LayerVersion
+        Properties:
+            LayerName: python-Levenshtein
+            Description: Python Levenshtein Lambda Layer
+            ContentUri: ./layer.zip
+            CompatibleRuntimes:
+              - python3.7
+            LicenseInfo: 'MIT'
+            RetentionPolicy: Retain
